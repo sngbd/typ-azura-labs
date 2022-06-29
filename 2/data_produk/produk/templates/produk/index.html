@@ -1,0 +1,10 @@
+{% extends "produk/layout.html" %}
+
+{% block body %}
+    <h2>{{ title }}</h2>
+    <ul>
+        {% for item in items %}
+        <li><a href="{% url 'produk:produk' item.id %}">{{ item.nama }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

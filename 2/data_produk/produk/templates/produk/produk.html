@@ -1,0 +1,20 @@
+{% extends "produk/layout.html" %}
+
+{% block body %}
+    <h2>{{ data.nama }}</h2>
+    <div class="my-3">
+        <img style="max-width: 500px" src="{{ data.gambar }}">
+    </div>
+    <p>{{ data.deskripsi }}</p>
+    <h3>Rp. {{ data.harga }}</h3>
+    <div class="my-3">
+        <form action="{% url 'produk:edit' data.id %}" method="GET">
+            <input type="submit" class="btn btn-primary" value="Edit Produk">
+        </form>
+        <form action="{% url 'produk:produk' data.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Hapus Produk">
+        </form>
+    </div>
+    Dibuat {{ data.timestamp }}
+{% endblock %}
