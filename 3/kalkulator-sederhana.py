@@ -9,4 +9,7 @@ def kalkulator(inp):
     elif opr == '*':
         return op1 * op2
     elif opr == '/':
-        return op1 / op2
+        if op1 % op2 == 0:
+            return op1 // op2
+        else:
+            return op1 / op2
